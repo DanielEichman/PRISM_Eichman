@@ -2,7 +2,7 @@
 --
 -- Title       : ALU
 -- Design      : ALU
--- Author      : usafa
+-- Author      : Daniel Eichman 
 -- Company     : usafa
 --
 -------------------------------------------------------------------------------
@@ -14,7 +14,9 @@
 --
 -------------------------------------------------------------------------------
 --
--- Description : 
+-- Description : This is a project that simulates a PRISM ALU. There are a 
+-- total of 8 commands which is selected by OpSel. Other than that there are two inputs
+-- Data and the Accumulator these will be used by operations the ALU can do.
 --
 -------------------------------------------------------------------------------
 
