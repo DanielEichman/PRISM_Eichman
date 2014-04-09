@@ -72,7 +72,7 @@ begin
 --	end process;
 	Result		<= Accumulator AND Data 							when (OpSel = "000") else 
 						std_logic_vector(unsigned(not Accumulator) + 1)  when (OpSel = "001") else
-						not Data												when (OpSel = "010") else
+						not Accumulator												when (OpSel = "010") else
 						std_logic_vector(unsigned(Accumulator) ror 1)		when (OpSel = "011") else
 						Accumulator OR Data								when (OpSel = "100") else
 						Data													when (OpSel = "101") else
