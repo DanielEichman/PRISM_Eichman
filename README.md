@@ -2,6 +2,7 @@ PRISM_Eichman
 =============
 ##Design
 ###Discussion of ALU Modifications (preferably a schematic)	
+None? I just used the given OpSel functions.
 ###ALU Test and Debug 
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/480ns.JPG)
 
@@ -15,6 +16,8 @@ PRISM_Eichman
 | 101   | IN       | 1000 | X    | 1000   | 350       |
 | 110   | ADD      | 1001 | 0010 | 1011   | 360       |
 | 111   | LD       | 1010 | X    | 1010   | 420       |
+
+The major error I had was that I did not know when to use the Data and when to use the Acc. Also I did not realize a when statement does not need to be in a process.
 ###Discussion of Datapath Modifications 	
 ###Datapath Test and Debug 	
 ###Discussion of Testbench Operation
