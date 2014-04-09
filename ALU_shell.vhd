@@ -40,7 +40,7 @@ end ALU;
 
 architecture ALU of ALU is	   
 
-
+signal temp : std_logic_vector(3 downto 0);
 begin
 	
 -- fill in details to create result as a function of Data and Accumulator, based on OpSel.
@@ -56,12 +56,51 @@ begin
 --  5     : IN
 --  6     : ADD
 --  7     : LD
-aluswitch: process (Accumulator, Data, OpSel)
-        begin
-		-- enter your if/then/else or case statements here
-		end process;
-
+--	aluswitch: process (Accumulator, Data, OpSel)
+--	begin
+--		temp		<= Accumulator AND Data 							when (OpSel = "000") else 
+--						std_logic_vector(unsigned(not Data) + 1)  when (OpSel = "001") else
+--						not Data												when (OpSel = "010") else
+--						std_logic_vector(unsigned(Data) ror 1)		when (OpSel = "011") else
+--						Accumulator OR Data								when (OpSel = "100") else
+--						Data													when (OpSel = "101") else
+--						Accumulator + Data 								when (OpSel = "110") else
+--						Data													when (OpSel = "111") else
+--						Accumulator;					
+--	end process;
+	Result		<= Accumulator AND Data 							when (OpSel = "000") else 
+						std_logic_vector(unsigned(not Data) + 1)  when (OpSel = "001") else
+						not Data												when (OpSel = "010") else
+						std_logic_vector(unsigned(Data) ror 1)		when (OpSel = "011") else
+						Accumulator OR Data								when (OpSel = "100") else
+						Data													when (OpSel = "101") else
+						Accumulator + Data 								when (OpSel = "110") else
+						Data													when (OpSel = "111") else
+						Accumulator;	
 -- OR, enter your conditional signal statement here
 
 end ALU;
 
+--		if(OpSel = "00")then--AND
+--			temp <= Accumulator AND Data;
+--			--Accumulator <= temp;
+--		elsif(OpSel = "001")then--NEG
+--			temp <= std_logic_vector(unsigned(not Data) + 1);
+--		elsif(OpSel = "010")then--NOT
+--			temp <= not Data;
+--		elsif(OpSel = "011")then--ROR
+--			--(Data ror 1)
+--			--temp <= Data;
+--			temp<= std_logic_vector(unsigned(Data) ror 1);
+--		elsif(OpSel = "100")then--OR
+--			temp <= Accumulator OR Data;
+--		elsif(OpSel = "101")then--IN
+--			temp<=Data;
+--		elsif(OpSel = "110")then--ADD
+--			temp <= Accumulator + Data;
+--		elsif(OpSel = "111")then--LD
+--			temp <= Data;
+--		else
+--			temp<=Accumulator;
+--		end if; 
+--		Accumulator <= temp;
