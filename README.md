@@ -18,6 +18,8 @@ None? I just used the given OpSel functions.
 | 111   | LD       | 1010 | X    | 1010   | 420       |
 
 The major error I had was that I did not know when to use the Data and when to use the Acc. Also I did not realize a when statement does not need to be in a process.
+####Documentation
+None
 ###Discussion of Datapath Modifications 	
 ###Datapath Test and Debug 	
 ###Discussion of Testbench Operation
