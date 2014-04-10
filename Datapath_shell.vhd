@@ -54,26 +54,25 @@ end Datapath;
 architecture Datapath of Datapath is
 
 	-- Copy the declaration for your ALU here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	COMPONENT ALU
+	PORT(
+		OpSel : IN std_logic_vector(2 downto 0);
+		Data : IN std_logic_vector(3 downto 0);
+		Accumulator : IN std_logic_vector(3 downto 0);          
+		Result : OUT std_logic_vector(3 downto 0)
+		);
+	END COMPONENT;
 	
+	COMPONENT Registar
+	PORT(
+		Data : IN std_logic_vector(3 downto 0);
+		Reset : IN std_logic;
+		Load : IN std_logic;
+		Clock : IN std_logic;          
+		Output : OUT std_logic_vector(3 downto 0)
+		);
+	END COMPONENT;
 
-
-	
 	-- Internal signals for connecting the Datapath registers.  Note the differing length 
 	-- based on content
 	signal  MARHi, MARLo, Accumulator, ALU_Result : std_logic_vector(3 downto 0);
@@ -95,7 +94,7 @@ begin
 	  elsif (Clock'event and Clock='1') then 
 		  if (PCLd = '1' and JmpSel = '1') then
 		        PC(7 downto 4) <= MARHi;   
-			PC(3 downto 0) <= MARLo;
+			     PC(3 downto 0) <= MARLo;
 		  elsif (PCLd = '1' and JmpSel = '0') then
 			  PC <= unsigned(PC) + 1;
 		  end if;
@@ -106,95 +105,92 @@ begin
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?  What are the inputs and outputs from the register?
 	
-	process(          )
-  	begin				 
-	  
+	--process(Reset_L,Clock) Process not need as proces is already inside Registar 
+  	--begin				 
+	IR_Registar: Registar PORT MAP(
+		Data => Data,
+		Reset => Reset_L,
+		Load => IRLd,
+		Clock => Clock,
+		Output => IR
+	);
 
 
-
-
-
-
-  	end process;   
+  --	end process;   
 	  	
 	  	
 	-- Complete the code to implement an Memory Address Register (Hi).  Use a standard register with an 
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?	 What are the inputs and outputs from the register?
 
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;       
+	--process(Reset_L, Clock) Process not need as proces is already inside Registar 
+  	--begin				 
+	  Hi_Registar: Registar PORT MAP(
+		Data => Data,
+		Reset => Reset_L,
+		Load => MARHiLd,
+		Clock => Clock,
+		Output => MARHi
+	);
+  	--end process;       
 
 	-- Complete the code to implement an Memory Address Register (Lo).  Use a standard register with an 
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?	 What are the inputs and outputs from the register?
 	
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;   
+	--process(Reset_L,Clock) Process not need as proces is already inside Registar 
+  	--begin				 
+		Lo_Registar: Registar PORT MAP(
+		Data => Data,
+		Reset => Reset_L,
+		Load => MARLoLd,
+		Clock => Clock,
+		Output => MARLo
+	); 
+  	--end process;   
 	  
 	-- Complete the code to implement an Address Selector (multiplexer) which determines between two data sources
 	-- (which two?) based on the AddrSel line. Be careful - the process sensitivity list has 4 signals!
 	
-	process(          )
+	process(AddrSel,MARLo,MARHi,PC)
   	begin				 
-	  
-
-
-
-
-
-
-  	end process;   
-		
-	
-	  		
+--	  Addr <= PC 				when (AddrSel = '0') else
+--				 MARHi & MARLO when (AddrSel = '1') else
+--				 ;
+		if(AddrSel = '0') then
+			Addr<= PC;
+	   else
+			Addr <= MARHi & MARLo;
+	   end if;
+  	end process;   	  		
 	-- Instantiate and connect the ALU  which was written in a separate file
-	
-
-
-
-
-	
+	ALU_Thing: ALU PORT MAP(
+		OpSel => OpSel,
+		Data => Data,
+		Accumulator => Accumulator,
+		Result => ALU_Result
+	);
 	-- Complete the code to implement an Accumulator.  Use a standard register with an 
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?	   What are the inputs and outputs from the register?
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;     
+	--process(Reset_L,Clock) Process not need as proces is already inside Registar 
+  	--begin				 
+	  	Acc_Registar: Registar PORT MAP(
+		Data => ALU_Result,
+		Reset => Reset_L,
+		Load => AccLd,
+		Clock => Clock,
+		Output => Accumulator
+	); 
+  	--end process;     
 	  
 	-- Complete the code to implement a tri-state buffer which places the Accumulator data on the 
 	-- Data Bus when enabled and goes to High Z the rest of the time	
 	-- Note: use "Z" just like a bit.  If you want to set a signal to  High Z, you'd say mySignal <= 'Z';
-	Data <=          when             else         ;
+	Data <= Accumulator when EnAccBuffer = '1'  else "ZZZZ";
 	  
   	-- Complete the code to implement the Datapath status signals --
-   	AlessZero <=   			--Uses MSB as a sign bit
-  	AeqZero <= 
-
-			   
-			   
+   	 AeqZero <= '1' when Accumulator = "0000" else '0';		--Uses MSB as a sign bit
+		 AlessZero <= Accumulator (3);	   
 end Datapath;
 
