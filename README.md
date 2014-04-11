@@ -29,6 +29,8 @@ There were a few commands that I missunderstood. For starters I thought that the
 ###Discussion of Testbench Operation
 ####50ns 
 Currently at 50ns the testbench matches perfectly with the provided testbench. All signal progressions from 0ns to 50ns also match perfectly. 
+####225ns 
+not checked 
 ##Reverse Engineering
 ###Simulation analysis
 ###PRISM program listing with memory locations for each instruction
