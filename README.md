@@ -21,7 +21,9 @@ The major error I had was that I did not know when to use the Data and when to u
 ####Documentation
 None
 ###Discussion of Datapath Modifications 	
+None? I just followed the diagram.
 ###Datapath Test and Debug 	
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50ns.JPG)
 ###Discussion of Testbench Operation
 ##Reverse Engineering
 ###Simulation analysis
