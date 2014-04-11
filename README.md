@@ -24,7 +24,11 @@ None
 None? I just followed the diagram.
 ###Datapath Test and Debug 	
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50ns.JPG)
+
+There were a few commands that I missunderstood. For starters I thought that the registars would reset when Reset_L was high. I also did not implement aeqzero and alesszero correctly the frist time.
 ###Discussion of Testbench Operation
+####50ns 
+Currently at 50ns the testbench matches perfectly with the provided testbench. All signal progressions from 0ns to 50ns also match perfectly. 
 ##Reverse Engineering
 ###Simulation analysis
 ###PRISM program listing with memory locations for each instruction
