@@ -57,12 +57,17 @@ To implement Data AeqZero and AlessZero I Used the following code.
 ###Datapath Test and Debug 	
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50ns.JPG)
 
-There were a few commands that I missunderstood. For starters I thought that the registars would reset when Reset_L was high. I also did not implement aeqzero and alesszero correctly the frist time. Another issue I had was having a process in the 
+There were a few commands that I missunderstood. For starters I thought that the registars would reset when Reset_L was high. I also did not implement aeqzero and alesszero correctly the frist time. Another issue I had was having a process inside the compenent and having one where I instanciated it.
+
+Currently at 50ns the testbench matches perfectly with the provided testbench. All signal progressions from 0ns to 50ns also match perfectly. 
 ###Discussion of Testbench Operation
 ####50ns 
-Currently at 50ns the testbench matches perfectly with the provided testbench. All signal progressions from 0ns to 50ns also match perfectly. 
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50-100ns.JPG)
 ####225ns 
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/225ns.JPG)
 not checked 
 ##Reverse Engineering
 ###Simulation analysis
 ###PRISM program listing with memory locations for each instruction
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/PRISM_Wizard.JPG)
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/PRISM_RAM.JPG)
