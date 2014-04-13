@@ -57,7 +57,7 @@ To implement Data AeqZero and AlessZero I Used the following code.
 ###Datapath Test and Debug 	
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50ns.JPG)
 
-There were a few commands that I missunderstood. For starters I thought that the registars would reset when Reset_L was high. I also did not implement aeqzero and alesszero correctly the frist time.
+There were a few commands that I missunderstood. For starters I thought that the registars would reset when Reset_L was high. I also did not implement aeqzero and alesszero correctly the frist time. Another issue I had was having a process in the 
 ###Discussion of Testbench Operation
 ####50ns 
 Currently at 50ns the testbench matches perfectly with the provided testbench. All signal progressions from 0ns to 50ns also match perfectly. 
