@@ -21,7 +21,32 @@ The major error I had was that I did not know when to use the Data and when to u
 ####Documentation
 None
 ###Discussion of Datapath Modifications 	
-None? I just followed the diagram.
+First I noticed that all of the registars had the same functions, so I recreated a registar compenent. 
+
+Below is the architecture of the the registar. I used this to implement the IR,MarHi, MarLo and Accumulator registars. 
+```
+begin
+process(Clock,Reset)
+  	begin	
+	  if(Reset = '0') then -- when reset is low reset the registar
+			Output<= "0000";
+	  elsif(rising_edge(Clock) and Load = '1') then -- when rising edge of clock and load is high 
+				Output <= Data;
+	  else
+	  end if;
+end process;
+```
+To implement the Address Selector mux; I used the following code.
+```
+	process(AddrSel,MARLo,MARHi,PC)--if any of the inputs change
+  	begin				 
+		if(AddrSel = '0') then--Load PC when addrSel is low
+			Addr<= PC;
+	   else
+			Addr <= MARHi & MARLo; --concat MARHi and MARLo
+	   end if;
+  	end process;  
+```
 ###Datapath Test and Debug 	
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50ns.JPG)
 
