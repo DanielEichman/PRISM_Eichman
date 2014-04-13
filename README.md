@@ -76,7 +76,15 @@ Currently at 50ns the testbench matches perfectly with the provided testbench. A
 Times 60,70,80,90,100 ns do not have a rising edge so nothing changed.
 ####225ns 
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/225ns.JPG)
-not checked 
+
+| Time        	| 195                       	| 205                                                     	| 215                                                              	| 225                                    	| 235                             	|
+|-------------	|---------------------------	|---------------------------------------------------------	|------------------------------------------------------------------	|----------------------------------------	|---------------------------------	|
+| IR          	| B(JN)                     	| B(JN)                                                   	| B(JN)                                                            	| B(JN)                                  	| B(JN)                           	|
+| Accumulator 	| D                         	| D                                                       	| D                                                                	| D                                      	| D                               	|
+| Data        	| 2                         	| 2                                                       	| 0                                                                	| 7                                      	| 3                               	|
+| Address     	| 0B                        	| 0B                                                      	| 0C                                                               	| 02                                     	| 02                              	|
+| OpSecl      	| 0(AND)                    	| 0(AND)                                                  	| 0(AND)                                                           	| 0(AND)                                 	| 0(AND)                          	|
+| Comment     	| JN: Jump if Acc<0. D < 0. 	| Data shows: Second part of the destination address is 2 	| Data Shows: First part of destination address is 0. Going to: 02 	| Address bus now shows next address: 02 	| Next command is OUT. To port: 3 	|
 ##Reverse Engineering
 ###Simulation analysis
 ###PRISM program listing with memory locations for each instruction
