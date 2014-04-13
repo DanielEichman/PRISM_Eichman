@@ -63,6 +63,16 @@ Currently at 50ns the testbench matches perfectly with the provided testbench. A
 ###Discussion of Testbench Operation
 ####50ns 
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50-100ns.JPG)
+| Time        	| 50                   	| 55                  	| 65                                       	| 75                            	| 85                  	| 95     	|
+|-------------	|----------------------	|---------------------	|------------------------------------------	|-------------------------------	|---------------------	|--------	|
+| IR          	| 7(LADI)              	| 3(ROR)              	| 3(ROR)                                   	| 3(ROR)                        	| 4(OUT)              	| 4(OUT) 	|
+| Accumulator 	| B                    	| B                   	| B                                        	| D                             	| D                   	| D      	|
+| Data        	| 3                    	| 4                   	| Z                                        	| 4                             	| 3                   	| 3      	|
+| Address     	| 03                   	| 04                  	| 04                                       	| 04                            	| 05                  	| 05     	|
+| OpSecl      	| 0(AND)               	| 0(AND)              	| 3(ROR)                                   	| 0(AND)                        	| 0(AND)              	| 0(AND) 	|
+| Comment     	| End of last command  	| Next Command is ROR 	| ALU is now processing the ROR            	| The ROR function has competed 	| Next Command is OUT 	|        	|
+|             	| No rising edge       	|                     	| because OpSel is 3                       	| B:1011                        	| To port 3           	|        	|
+|             	|                      	|                     	| The  Data bus is Z because accld is high 	| D:1101                        	|                     	|        	|
 ####225ns 
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/225ns.JPG)
 not checked 
