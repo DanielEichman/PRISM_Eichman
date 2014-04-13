@@ -87,6 +87,27 @@ Times 60,70,80,90,100 ns do not have a rising edge so nothing changed.
 | Comment     	| JN: Jump if Acc<0. D < 0. 	| Data shows: Second part of the destination address is 2 	| Data Shows: First part of destination address is 0. Going to: 02 	| Address bus now shows next address: 02 	| Next command is OUT. To port: 3 	|
 ##Reverse Engineering
 ###Simulation analysis
+| Command   	| Accumulator  	| Data 	|
+|-----------	|--------------	|------	|
+| LADI      	| 0            	| B    	|
+| ROR       	| B            	| -    	|
+| OUT       	| D            	| 03   	|
+| NOP       	| D            	| -    	|
+| STA       	| D            	| B0   	|
+| JN(true)  	| D            	| 02   	|
+| ROR       	| D            	| -    	|
+| OUT       	| E            	| 03   	|
+| NOP       	| E            	| -    	|
+| STA       	| E            	| B0   	|
+| JN(true)  	| E            	| 02   	|
+| ROR       	| E            	| -    	|
+| OUT       	| 7            	| 03   	|
+| NOP       	| 7            	| -    	|
+| STA       	| 7            	| B0   	|
+| JN(false) 	| 7            	| 02   	|
+| JMP       	| 7            	| 0C   	|
+
+
 ###PRISM program listing with memory locations for each instruction
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/PRISM_Wizard.JPG)
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/PRISM_RAM.JPG)
