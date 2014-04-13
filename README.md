@@ -1,8 +1,9 @@
 PRISM_Eichman
 =============
 ##Design
+
 ###Discussion of ALU Modifications (preferably a schematic)	
-None? I just used the given OpSel functions.
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/ALU.JPG)
 ###ALU Test and Debug 
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/480ns.JPG)
 
