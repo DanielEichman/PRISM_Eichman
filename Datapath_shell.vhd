@@ -2,7 +2,7 @@
 --
 -- Title       : Datapath
 -- Design      : Datapath
--- Author      : usafa
+-- Author      : Daniel Eichman
 -- Company     : usafa
 --
 -------------------------------------------------------------------------------
@@ -14,8 +14,8 @@
 --
 -------------------------------------------------------------------------------
 --
--- Description : 
---
+-- Description : This simulates the datapath that conects the IO to CPU and Memory together. 
+-- This is also stors the values of the registars.
 -------------------------------------------------------------------------------
 
 --{{ Section below this comment is automatically maintained
@@ -106,7 +106,7 @@ begin
 	-- when data is loaded?  What are the inputs and outputs from the register?
 	
 	--process(Reset_L,Clock) Process not need as proces is already inside Registar 
-  	--begin				 
+  	--begin				 Mar
 	IR_Registar: Registar PORT MAP(
 		Data => Data,
 		Reset => Reset_L,

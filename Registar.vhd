@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: USAFA
+-- Engineer: Daniel Eichman
 -- 
 -- Create Date:    14:00:33 04/09/2014 
 -- Design Name: 
@@ -8,13 +8,7 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+-- Description: This simulates a registar. It will pass the data to the output when there is a rising edge of the clock and Load is high and reset is high.
 --
 ----------------------------------------------------------------------------------
 library IEEE;
