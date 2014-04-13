@@ -3,7 +3,7 @@ PRISM_Eichman
 ##Design
 
 ###Discussion of ALU Modifications (preferably a schematic)	
-![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/ALU.JPG)
+![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/ALU.jpg)
 ###ALU Test and Debug 
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/480ns.JPG)
 
@@ -19,8 +19,7 @@ PRISM_Eichman
 | 111   | LD       | 1010 | X    | 1010   | 420       |
 
 The major error I had was that I did not know when to use the Data and when to use the Acc. Also I did not realize a when statement does not need to be in a process.
-####Documentation
-None
+
 ###Discussion of Datapath Modifications 	
 First I noticed that all of the registars had the same functions, so I recreated a registar compenent. 
 
@@ -91,3 +90,5 @@ Times 60,70,80,90,100 ns do not have a rising edge so nothing changed.
 ###PRISM program listing with memory locations for each instruction
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/PRISM_Wizard.JPG)
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/PRISM_RAM.JPG)
+####Documentation
+None
