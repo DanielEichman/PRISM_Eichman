@@ -47,6 +47,13 @@ To implement the Address Selector mux; I used the following code.
 	   end if;
   	end process;  
 ```
+To implement Data AeqZero and AlessZero I Used the following code.
+```
+	Data <= Accumulator when EnAccBuffer = '1'  else "ZZZZ"; -- Load Accumulator when EnAccBuffer is high
+   	AeqZero <= '1' when Accumulator = "0000" else '0';-- High if Acc is Zero	
+	AlessZero <= Accumulator (3);--Most significant bit
+```
+
 ###Datapath Test and Debug 	
 ![image](https://raw.githubusercontent.com/DanielEichman/PRISM_Eichman/master/50ns.JPG)
 
